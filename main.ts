@@ -17,16 +17,14 @@ function goBack () {
 function goPush () {
     maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CW, 30)
     pushing = true
-    startTime = input.runningTime()
+    executionTime = input.runningTime()
     while (pushing) {
         if (maqueen.readPatrol(maqueen.Patrol.PatrolLeft) == 0 && maqueen.readPatrol(maqueen.Patrol.PatrolRight) == 0) {
             maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CW, 0)
             pushing = false
         }
     }
-    executionTime = input.runningTime() - startTime
 }
-let startTime = 0
 let pushing = false
 let executionTime = 0
 let distance = 0
